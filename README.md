@@ -66,7 +66,7 @@ The project aimed to create a dashboard that could:
 
 This project has been tested on Mac OS with a conda virtual environment.
 
-1. Clone the repo to the desired directory `git clone https:// ADD THIS HERE ONCE PUSHED`
+1. Clone the repo to the desired directory `git clone https://github.com/olivermills/de-prices-paid-capstone.git`
 
 
 2. Set up GCP
