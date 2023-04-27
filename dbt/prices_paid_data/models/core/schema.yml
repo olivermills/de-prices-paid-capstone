@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: prices_paid
+    description: >
+      Core prices paid dataset, with some transformations to help with reporting.
+
+  - name: report_avg_pp
+    description: >
+      Aggregated report table calculating the average price paid across all regions, per month and year.
+
+  - name: report_pp_growth
+    description: >
+      Aggregated report table calculating the percentage change in average price from 2016-2022, per county.
+    
+  - name: report_pp_undervalued
+    description: >
+      Aggregated report table calculating potential areas that may be undervalued.

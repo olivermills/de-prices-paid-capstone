@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: staging
+    description: A staged copy of the prices paid dataset
+    schema: pp_bq_dataset
+    tables:
+      - name: pp_data_partitioned_clustered
+
+models:
+  - name: stg_pp_data
+    description: >
+      A dataset containing the prices paid for houses in the UK between 2016 and 2022
+    columns:
+      - name: transaction_id
+        description: A reference number which is generated automatically recording each published sale. The number is unique and will change each time a sale is recorded.
+        type: string
+      - name: sale_price
+        description: Sale price stated on the transfer deed.
+        type: float
+      - name: sale_date
+        description: Date when the sale was completed, as stated on the transfer deed.
+        type: date
+      - name: postcode
+        description: This is the postcode used at the time of the original transaction. Note that postcodes can be reallocated and these changes are not reflected in the Price Paid Dataset.
+        type: string
+      - name: property_type
+        description: Property Type - D = Detached, S = Semi-Detached, T = Terraced, F = Flats/Maisonettes, O = Other
+        type: string
+      - name: new_or_old
+        description: Indicates the age of the property and applies to all price paid transactions, residential and non-residential. Y = a newly built property, N = an established residential building
+        type: string
+      - name: tenure
+        description: Relates to the tenure - F = Freehold, L= Leasehold etc.
+        type: string
+      - name: paon
+        description: Primary Addressable Object Name. Typically the house number or name.
+        type: string
+      - name: saon
+        description: Secondary Addressable Object Name. Where a property has been divided into separate units (for example, flats), the PAON (above) will identify the building and a SAON will be specified that identifies the separate unit/flat.
+        type: string
+      - name: ppd_category_type
+        description: Indicates the type of Price Paid transaction. A = Standard Price Paid entry, includes single residential property sold for value. B = Additional Price Paid entry including transfers under a power of sale/repossessions, buy-to-lets (where they can be identified by a Mortgage), transfers to non-private individuals and sales where the property type is classed as ‘Other’.
+        type: string
+      - name: record_status
+        description: Indicates additions, changes and deletions to the records. (see guide below). A = Addition C = Change D = Delete Note that where a transaction changes category type due to misallocation (as above) it will be deleted from the original category type and added to the correct category with a new transaction unique identifier.
+        type: string

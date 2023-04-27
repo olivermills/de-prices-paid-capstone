@@ -1,0 +1,15 @@
+prices_paid_data:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: spatial-thinker-384120
+      dataset: prices_paid
+      location: EU # Optional, one of US or EU, or a regional location
+    prod:
+      type: bigquery
+      method: oauth
+      project: spatial-thinker-384120
+      dataset: prices_paid
+      location: EU # Optional, one of US or EU, or a regional location
